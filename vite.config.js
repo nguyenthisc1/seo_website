@@ -1,14 +1,30 @@
 import legacy from '@vitejs/plugin-legacy';
+import { defineConfig } from 'vite';
+import checker from 'vite-plugin-checker';
 
-import _config from './_config.js';
-
-const HOST = _config.server.host;
-const PORT = _config.server.port;
-
-export default {
-  server: {
-    host: HOST,
-    port: PORT
-  },
-  plugins: [legacy()]
-};
+export default defineConfig({
+    plugins: [
+        legacy({
+            targets: ['defaults', 'not IE 11']
+        }),
+        checker({
+            eslint: {
+                typescript: false,
+                lintCommand: 'eslint .'
+            },
+            stylelint: {
+                lintCommand: 'stylelint "src/**/*.{css,scss}"'
+            }
+        })
+    ],
+    build: {
+        cssCodeSplit: true,
+        minify: 'terser',
+        sourcemap: false,
+        rollupOptions: {
+            input: {
+                main: 'index.html'
+            }
+        }
+    }
+});

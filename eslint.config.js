@@ -6,29 +6,29 @@ import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 
 export default [
-  js.configs.recommended,
-  sonarjs.configs.recommended,
-  unicorn.configs.recommended,
-  prettierConfig,
-  prettierPlugin,
-  {
-    files: ['**/*.js'],
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.es2021
-      }
+    js.configs.recommended,
+    sonarjs.configs.recommended,
+    unicorn.configs.recommended,
+    prettierConfig,
+    prettierPlugin,
+    {
+        files: ['**/*.js'],
+        languageOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+            globals: {
+                ...globals.browser,
+                ...globals.node,
+                ...globals.es2021
+            }
+        },
+        rules: {
+            // unicorn adjustments
+            'unicorn/prevent-abbreviations': 'off',
+            'unicorn/no-null': 'off'
+        }
     },
-    rules: {
-      // unicorn adjustments
-      'unicorn/prevent-abbreviations': 'off',
-      'unicorn/no-null': 'off'
+    {
+        ignores: ['dist/**', 'node_modules/**', '**/*.html']
     }
-  },
-  {
-    ignores: ['dist/**', 'node_modules/**', '**/*.html']
-  }
 ];
