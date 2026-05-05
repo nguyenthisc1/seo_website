@@ -1,0 +1,53 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.75rem 1rem;
+    border: var(--border-width-sm) solid transparent;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    text-decoration: none;
+    transition:
+        background-color var(--duration-base) var(--ease-standard),
+        border-color var(--duration-base) var(--ease-standard),
+        box-shadow var(--duration-base) var(--ease-standard),
+        color var(--duration-base) var(--ease-standard),
+        transform var(--duration-fast) var(--ease-standard);
+}
+
+.button:hover {
+    transform: translateY(-1px);
+}
+
+.button:focus-visible {
+    outline: var(--border-width-md) solid var(--focus-outline);
+    outline-offset: 0.125rem;
+    box-shadow: var(--shadow-focus);
+}
+
+.button--primary {
+    color: var(--action-primary-text);
+    background: var(--action-primary);
+}
+
+.button--primary:hover {
+    background: var(--action-primary-hover);
+}
+
+.button--secondary {
+    color: var(--text-strong);
+    background: transparent;
+    border-color: var(--border-subtle);
+}
+
+.button--secondary:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-subtle);
+}
+
+.button--inverse {
+    color: var(--color-inverse-on-surface);
+    background: var(--color-inverse-surface);
+}

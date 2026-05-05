@@ -1,0 +1,17 @@
+.hide-on-retina {
+    display: initial;
+}
+
+.show-on-retina {
+    display: none;
+}
+
+@media (min-resolution: 2dppx) {
+    .hide-on-retina {
+        display: none;
+    }
+
+    .show-on-retina {
+        display: initial;
+    }
+}

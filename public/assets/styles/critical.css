@@ -1,0 +1,110 @@
+:root {
+    color-scheme: light;
+    --critical-page-bg: #f8f9ff;
+    --critical-page-text: #0b1c30;
+    --critical-text-muted: #45464d;
+    --critical-focus: #0266ff;
+    --critical-container-max: 90rem;
+    --critical-container-padding: 1rem;
+    --critical-font-heading: 'Space Grotesk', Inter, ui-sans-serif, system-ui, sans-serif;
+    --critical-font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+    --critical-display-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+}
+
+@media (width >= 48rem) {
+    :root {
+        --critical-container-padding: 1.5rem;
+    }
+}
+
+@media (width >= 80rem) {
+    :root {
+        --critical-container-padding: 2rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+        color-scheme: dark;
+        --critical-page-bg: #0b1220;
+        --critical-page-text: #eef4ff;
+        --critical-text-muted: #b8c2d6;
+        --critical-focus: #4f91ff;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--critical-font-body);
+    line-height: 1.6;
+    color: var(--critical-page-text);
+    background: var(--critical-page-bg);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    margin-block: 0;
+    font-family: var(--critical-font-heading);
+    font-size: var(--critical-display-size);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: var(--critical-page-text);
+}
+
+p {
+    margin-block: 0;
+    color: var(--critical-text-muted);
+}
+
+.container {
+    width: min(100% - calc(var(--critical-container-padding) * 2), var(--critical-container-max));
+    margin-inline: auto;
+}
+
+.skip-link {
+    position: fixed;
+    inset-block-start: 0.75rem;
+    inset-inline-start: 0.75rem;
+    z-index: 900;
+    padding: 0.5rem 0.75rem;
+    color: #fff;
+    background: var(--critical-focus);
+    border-radius: 0.25rem;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+:focus-visible {
+    outline: 2px solid var(--critical-focus);
+    outline-offset: 0.125rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+    }
+}

@@ -1,0 +1,18 @@
+.container {
+    width: min(100% - calc(var(--container-padding) * 2), var(--container-max));
+    margin-inline: auto;
+}
+
+.container--readable {
+    max-width: var(--container-readable);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    gap: var(--space-gutter);
+}
+
+.grid > * {
+    min-width: 0;
+}
