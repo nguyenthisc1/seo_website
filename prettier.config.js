@@ -10,6 +10,6 @@ export default {
     bracketSameLine: false,
     arrowParens: 'always',
     endOfLine: 'lf',
-    plugins: ['@ianvs/prettier-plugin-sort-imports'],
-    importOrder: ['^react$', '', '<TYPES>', '<TYPES>^[.]', '', '<THIRD_PARTY_MODULES>', '', '^[@]/', '', '^[.]']
+    plugins: ['@ianvs/prettier-plugin-sort-imports']
+    // importOrder: ['^react$', '', '<TYPES>', '<TYPES>^[.]', '', '<THIRD_PARTY_MODULES>', '', '^[@]/', '', '^[.]']
 };

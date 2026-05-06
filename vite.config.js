@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
+import nunjucks from 'vite-plugin-nunjucks';
 
 export default defineConfig({
     root: 'src',
     publicDir: '../public',
     plugins: [
+        nunjucks(),
         checker({
             eslint: {
                 typescript: false,
@@ -22,10 +24,7 @@ export default defineConfig({
         minify: 'terser',
         sourcemap: false,
         rollupOptions: {
-            input: {
-                main: 'index.html',
-                critical: 'assets/styles/critical.scss'
-            },
+            input: 'src/index.html',
             output: {
                 entryFileNames: 'assets/scripts/[name].js',
                 chunkFileNames: 'assets/scripts/[name].js',

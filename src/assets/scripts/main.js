@@ -1,1 +1,1 @@
-import '../styles/app.scss';
+console.log(123);

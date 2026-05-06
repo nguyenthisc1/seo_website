@@ -1,27 +1,2 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/assets/styles/critical.css" />
-
-        <link
-            rel="preload"
-            href="/assets/styles/app.css"
-            as="style"
-            onload="
-                this.onload = null;
-                this.rel = 'stylesheet';
-            "
-        />
-        <noscript>
-            <link rel="stylesheet" href="/assets/styles/app.css" />
-        </noscript>
-        <title>seo_website</title>
-    </head>
-    <body>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio aliquam adipisci beatae id consequatur aliquid ab, impedit quia obcaecati nihil dicta assumenda! Alias asperiores eligendi eaque suscipit optio repudiandae totam.
-        <script defer type="module" src="/assets/scripts/main.js"></script>
-    </body>
-</html>
+{% extends "src/html/layout.html" %} {% block content %} Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, soluta eligendi possimus enim aut quis ducimus iure quaerat incidunt neque cumque blanditiis, assumenda, natus voluptas amet
+vero ex ea consectetur. {% endblock %}
