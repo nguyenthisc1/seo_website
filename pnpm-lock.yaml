@@ -52,6 +52,9 @@ importers:
             eslint-plugin-unicorn:
                 specifier: ^64.0.0
                 version: 64.0.0(eslint@10.3.0(jiti@2.6.1))
+            fast-glob:
+                specifier: ^3.3.3
+                version: 3.3.3
             globals:
                 specifier: ^17.6.0
                 version: 17.6.0
