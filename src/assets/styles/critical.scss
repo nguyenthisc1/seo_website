@@ -1,11 +1,19 @@
-@use 'settings/tokens';
+@use 'abstracts/variables.scss' as *;
+
+@use 'base/reset';
+
+@use 'base/tokens';
 
 @use 'base/fonts';
-@use 'base/reset';
+@use 'root';
 @use 'base/typography';
 
-@use 'layout/container';
-@use 'layout/section';
+@use 'components/section';
+
+@use 'layouts/header';
+@use 'layouts/nav';
+@use 'layouts/footer';
+@use 'layouts/container';
 
 @use 'utilities/a11y';
 @use 'utilities/flow';

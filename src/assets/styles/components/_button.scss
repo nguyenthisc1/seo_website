@@ -17,10 +17,6 @@
         transform var(--duration-fast) var(--ease-standard);
 }
 
-.button:hover {
-    transform: translateY(-1px);
-}
-
 .button:focus-visible {
     outline: var(--border-width-md) solid var(--focus-outline);
     outline-offset: 0.125rem;
@@ -50,4 +46,10 @@
 .button--inverse {
     color: var(--color-inverse-on-surface);
     background: var(--color-inverse-surface);
+}
+
+.button--visible {
+    background-color: transparent;
+    outline: none;
+    border: none;
 }

@@ -135,6 +135,9 @@
     --ease-standard: cubic-bezier(0.2, 0, 0, 1);
     --ease-emphasized: cubic-bezier(0.2, 0, 0, 1.2);
 
+    /* Header tokens */
+    --header-height: 5rem;
+
     /* Z-index tokens */
     --z-base: 0;
     --z-sticky: 100;
