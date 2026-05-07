@@ -1,6 +1,5 @@
 import js from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier/flat';
-import prettierPlugin from 'eslint-plugin-prettier/recommended';
 import sonarjs from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
@@ -10,7 +9,7 @@ export default [
     sonarjs.configs.recommended,
     unicorn.configs.recommended,
     prettierConfig,
-    prettierPlugin,
+    // prettierPlugin,
     {
         files: ['**/*.js'],
         languageOptions: {
