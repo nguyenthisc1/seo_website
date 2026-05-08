@@ -19,3 +19,11 @@ $breakpoints: (
         @content;
     }
 }
+
+@mixin background-image($url, $type: 'jpg') {
+    background-image: url('#{$url}.#{$type}');
+
+    @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+        background-image: url('#{$url}@2x.#{$type}');
+    }
+}

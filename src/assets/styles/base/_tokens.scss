@@ -23,6 +23,7 @@
     --color-on-primary-container: #7c839b;
     --color-inverse-primary: #bec6e0;
     --color-secondary: #0050cc;
+    --color-secondary-container-light: rgb(0, 80, 204, 0.1);
     --color-on-secondary: #fff;
     --color-secondary-container: #0266ff;
     --color-on-secondary-container: #f9f7ff;
@@ -50,7 +51,7 @@
     --border-subtle: var(--color-outline-variant);
     --border-strong: var(--color-outline);
     --action-primary: var(--color-secondary-container);
-    --action-primary-hover: #0056dc;
+    --action-primary-hover: var(--color-secondary);
     --action-primary-text: var(--color-on-secondary-container);
     --action-secondary: var(--color-primary);
     --action-secondary-text: var(--color-on-primary);
