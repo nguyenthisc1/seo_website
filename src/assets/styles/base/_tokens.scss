@@ -259,8 +259,8 @@
 
 @media (prefers-reduced-motion: reduce) {
     :root {
-        --duration-fast: 1ms;
-        --duration-base: 1ms;
+        --duration-fast: 0.3ms;
+        --duration-base: 0.5ms;
         --duration-slow: 1ms;
     }
 }
