@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'node:url';
 import glob from 'fast-glob';
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import nunjucks from 'vite-plugin-nunjucks';
 
 export default defineConfig({
@@ -33,6 +34,25 @@ export default defineConfig({
             stylelint: {
                 lintCommand: 'stylelint "assets/styles/**/*.{css,scss}" "public/assets/styles/**/*.css"'
             }
+        }),
+        ViteImageOptimizer({
+            test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
+            exclude: undefined,
+            include: undefined,
+            includePublic: true,
+            logStats: true,
+            ansiColors: true,
+            svg: {
+                multipass: true,
+                plugins: [
+                    { name: 'removeViewBox', active: false },
+                    { name: 'sortAttrs', active: true }
+                ]
+            },
+            png: { quality: 80 },
+            jpeg: { quality: 75 },
+            webp: { lossy: 80 },
+            avif: { lossy: 70 }
         })
     ],
     build: {
