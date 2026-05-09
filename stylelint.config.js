@@ -1,6 +1,6 @@
 export default {
     extends: ['stylelint-config-standard-scss'],
-    ignoreFiles: ['dist/**', 'node_modules/**', 'coverage/**'],
+    ignoreFiles: ['dist/**', 'node_modules/**', 'coverage/**', 'src/assets/scripts/**/*.js', 'src/assets/fonts/**', 'public/assets/fonts/**'],
     rules: {
         'color-hex-length': 'short',
         'alpha-value-notation': null,
