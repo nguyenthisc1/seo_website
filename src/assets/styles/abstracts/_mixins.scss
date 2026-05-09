@@ -1,0 +1,29 @@
+@use 'sass:map';
+
+$breakpoints: (
+    'sm': 36rem,
+    'md': 48rem,
+    'lg': 64rem,
+    'xl': 80rem,
+    '2xl': 90rem
+);
+
+@mixin mobile-down($size) {
+    @media (max-width: map.get($breakpoints, $size)) {
+        @content;
+    }
+}
+
+@mixin mobile-up($size) {
+    @media (min-width: map.get($breakpoints, $size)) {
+        @content;
+    }
+}
+
+@mixin background-image($url, $type: 'jpg') {
+    background-image: url('#{$url}.#{$type}');
+
+    @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+        background-image: url('#{$url}@2x.#{$type}');
+    }
+}

@@ -12,9 +12,11 @@ export default defineConfig({
         screenshot: 'only-on-failure'
     },
     webServer: {
-        command: 'pnpm preview --host 127.0.0.1',
+        command: 'pnpm run build && pnpm run preview',
         url: 'http://localhost:4173',
-        reuseExistingServer: true
+        reuseExistingServer: !process.env.CI,
+        stdout: 'ignore',
+        stderr: 'pipe'
     },
     projects: [
         {

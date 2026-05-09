@@ -36,7 +36,9 @@
         "@eslint/js": "^10.0.1",
         "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
         "@playwright/test": "^1.59.1",
+        "@types/node": "^25.6.2",
         "@vitejs/plugin-legacy": "^8.0.1",
+        "@vituum/vite-plugin-nunjucks": "^2.0.1",
         "cssnano": "^7.1.9",
         "eslint": "^10.3.0",
         "eslint-config-prettier": "^10.1.8",
@@ -44,6 +46,7 @@
         "eslint-plugin-promise": "^7.3.0",
         "eslint-plugin-sonarjs": "^4.0.3",
         "eslint-plugin-unicorn": "^64.0.0",
+        "fast-glob": "^3.3.3",
         "globals": "^17.6.0",
         "html-validate": "^10.15.0",
         "husky": "^9.1.7",
@@ -51,6 +54,7 @@
         "postcss": "^8.5.14",
         "prettier": "^3.8.3",
         "sass": "^1.99.0",
+        "sharp": "^0.34.5",
         "stylelint": "^17.11.0",
         "stylelint-config-prettier": "^9.0.5",
         "stylelint-config-standard": "^40.0.0",
@@ -59,6 +63,9 @@
         "stylelint-scss": "^7.0.0",
         "terser": "^5.46.2",
         "vite": "^8.0.10",
-        "vite-plugin-checker": "^0.13.0"
+        "vite-plugin-checker": "^0.13.0",
+        "vite-plugin-image-optimizer": "^2.0.3",
+        "vite-plugin-imagemin": "^0.6.1",
+        "vite-plugin-nunjucks": "^0.2.0"
     }
 }

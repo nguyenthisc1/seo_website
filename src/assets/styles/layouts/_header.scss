@@ -1,0 +1,113 @@
+@use '../abstracts/' as *;
+
+.header {
+    position: fixed;
+    z-index: var(--z-sticky);
+    background-color: var(--page-bg);
+    border-bottom: var(--border-width-sm) solid var(--color-outline-variant);
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform var(--duration-base) ease;
+    will-change: transform;
+
+    &.is-scroll-down {
+        transform: translateY(-100%);
+    }
+}
+
+.header__wrapper {
+    display: flex;
+    height: var(--header-height);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__nav {
+    display: flex;
+}
+
+.header__menu {
+    display: flex;
+    gap: var(--space-7);
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-7);
+}
+
+.header__link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.2s;
+
+    &:hover {
+        color: var(--action-primary-hover);
+    }
+
+    &.is-active {
+        color: var(--action-primary);
+    }
+}
+
+.header__toggle {
+    position: relative;
+
+    &--closed {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity var(--duration-base) ease;
+    }
+
+    &--closed {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    &--open {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &[aria-expanded='false'] {
+        .header__toggle--closed {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .header__toggle--open {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &[aria-expanded='true'] {
+        .header__toggle--closed {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .header__toggle--open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        display: none;
+    }
+}
+
+@media (max-width: $breakpoint-lg) {
+    .header__nav {
+        display: none;
+    }
+
+    .header__right-button {
+        display: none;
+    }
+}

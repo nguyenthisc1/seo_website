@@ -1,0 +1,27 @@
+.section {
+    padding-block: var(--space-8);
+}
+
+.section--compact {
+    padding-block: var(--space-7);
+}
+
+.section__header {
+    max-width: var(--container-readable);
+    margin-block-end: var(--space-7);
+}
+
+.section__eyebrow {
+    margin-block-end: var(--space-3);
+    color: var(--action-primary);
+}
+
+@media (width < 48rem) {
+    .section {
+        padding-block: var(--space-7);
+    }
+
+    .section__header {
+        margin-block-end: var(--space-5);
+    }
+}
