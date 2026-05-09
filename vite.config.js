@@ -16,14 +16,6 @@ export default defineConfig({
             '@styles': fileURLToPath(new URL('src/assets/styles', import.meta.url))
         }
     },
-    // css: {
-    //     preprocessorOptions: {
-    //         scss: {
-    //             // api: 'modern-compiler',
-    //             // additionalData: `@forward "abstracts/_variables.scss";`
-    //         }
-    //     },
-    // },
     plugins: [
         nunjucks(),
         checker({
@@ -32,7 +24,7 @@ export default defineConfig({
                 lintCommand: 'eslint .'
             },
             stylelint: {
-                lintCommand: 'stylelint "assets/styles/**/*.{css,scss}" "public/assets/styles/**/*.css"'
+                lintCommand: 'stylelint "assets/styles/**/*.{css,scss}"'
             }
         }),
         ViteImageOptimizer({
