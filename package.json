@@ -16,7 +16,8 @@
         "test": "playwright test",
         "test:e2e": "playwright test",
         "test:ui": "playwright test --ui",
-        "a11y": "playwright test tests/a11y.spec.js"
+        "a11y": "playwright test tests/a11y.spec.js",
+        "check": "pnpm lint && pnpm lint:html && pnpm build && pnpm test"
     },
     "lint-staged": {
         "*.{js,css,scss,html,json,md}": [
@@ -36,6 +37,7 @@
         "@eslint/js": "^10.0.1",
         "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
         "@playwright/test": "^1.59.1",
+        "@types/node": "^25.6.2",
         "@vitejs/plugin-legacy": "^8.0.1",
         "@vituum/vite-plugin-nunjucks": "^2.0.1",
         "cssnano": "^7.1.9",
@@ -53,6 +55,7 @@
         "postcss": "^8.5.14",
         "prettier": "^3.8.3",
         "sass": "^1.99.0",
+        "sharp": "^0.34.5",
         "stylelint": "^17.11.0",
         "stylelint-config-prettier": "^9.0.5",
         "stylelint-config-standard": "^40.0.0",
@@ -62,6 +65,8 @@
         "terser": "^5.46.2",
         "vite": "^8.0.10",
         "vite-plugin-checker": "^0.13.0",
+        "vite-plugin-image-optimizer": "^2.0.3",
+        "vite-plugin-imagemin": "^0.6.1",
         "vite-plugin-nunjucks": "^0.2.0"
     }
 }

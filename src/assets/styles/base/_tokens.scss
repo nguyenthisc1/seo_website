@@ -20,9 +20,10 @@
     --color-primary: #000;
     --color-on-primary: #fff;
     --color-primary-container: #131b2e;
-    --color-on-primary-container: #7c839b;
+    --color-on-primary-container: #c3c3c3;
     --color-inverse-primary: #bec6e0;
     --color-secondary: #0050cc;
+    --color-secondary-container-light: rgb(0, 80, 204, 0.1);
     --color-on-secondary: #fff;
     --color-secondary-container: #0266ff;
     --color-on-secondary-container: #f9f7ff;
@@ -50,13 +51,13 @@
     --border-subtle: var(--color-outline-variant);
     --border-strong: var(--color-outline);
     --action-primary: var(--color-secondary-container);
-    --action-primary-hover: #0056dc;
+    --action-primary-hover: var(--color-secondary);
     --action-primary-text: var(--color-on-secondary-container);
     --action-secondary: var(--color-primary);
     --action-secondary-text: var(--color-on-primary);
     --focus-ring: rgb(2 102 255 / 28%);
     --focus-outline: var(--color-secondary-container);
-    --metric-positive: #007f5f;
+    --metric-positive: #6ffbbe;
     --metric-warning: #a15c00;
     --metric-negative: var(--color-error);
     --metric-info: var(--color-secondary-container);
@@ -259,8 +260,8 @@
 
 @media (prefers-reduced-motion: reduce) {
     :root {
-        --duration-fast: 1ms;
-        --duration-base: 1ms;
+        --duration-fast: 0.3ms;
+        --duration-base: 0.5ms;
         --duration-slow: 1ms;
     }
 }

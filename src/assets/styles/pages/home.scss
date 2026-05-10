@@ -1,3 +1,275 @@
-// main {
-//     background-color: red;
-// }
+@use '../abstracts/' as *;
+
+.technical {
+    background-color: var(--surface-subtle);
+    border-block: var(--border-width-sm) solid var(--border-subtle);
+
+    .section__title {
+        color: var(--text-muted);
+        font-weight: var(--font-weight-regular);
+        text-align: center;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-7) var(--space-6);
+        text-align: center;
+
+        @media (min-width: $breakpoint-md) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @media (min-width: $breakpoint-lg) {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+    }
+
+    &__item {
+        font-family: var(--font-heading);
+        font-size: var(--font-size-body-md);
+        font-weight: var(--font-weight-bold);
+        letter-spacing: var(--tracking-label);
+        color: var(--text-muted);
+        text-transform: uppercase;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-7);
+    }
+}
+
+.services {
+    &__wrapper {
+        @include space-y(10);
+
+        @media (min-width: $breakpoint-md) {
+            @include space-y(20);
+        }
+    }
+
+    &__container {
+        @media (max-width: $breakpoint-lg) {
+            max-width: none;
+            width: auto;
+            padding: 0;
+        }
+    }
+
+    &__list {
+        scrollbar-width: none;
+
+        @include space-x(3);
+
+        @media (max-width: $breakpoint-lg) {
+            padding-right: var(--container-padding);
+            margin-left: var(--container-padding);
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            outline-offset: var(--space-2);
+        }
+
+        @media (min-width: $breakpoint-lg) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__card {
+        width: fit-content;
+        border: var(--border-width-sm) solid var(--border-subtle);
+        padding: var(--space-5);
+        border-radius: var(--radius-sm);
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        @include space-y(3);
+
+        &-icon {
+            display: inline-block;
+            margin-bottom: var(--space-2);
+        }
+
+        &-tech {
+            margin-top: var(--space-5);
+            li {
+                display: flex;
+                @include space-x(2);
+            }
+        }
+
+        @media (max-width: $breakpoint-lg) {
+            max-width: 400px;
+        }
+    }
+
+    .section__heading {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+        > div {
+            @include space-y(3);
+        }
+
+        @media (max-width: $breakpoint-md) {
+            @include space-y(5);
+        }
+
+        @media (min-width: $breakpoint-md) {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+    }
+}
+
+.assessment {
+    background-color: var(--color-primary-container);
+    color: var(--color-on-primary-container);
+
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: var(--color-surface);
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: var(--space-7);
+
+        @media (min-width: $breakpoint-lg) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-8);
+        }
+    }
+
+    .section__heading {
+        @include space-y(6);
+    }
+
+    &__content {
+        @include space-y(12);
+    }
+
+    &__checklist {
+        @include space-y(3);
+    }
+
+    .checklist__card {
+        background-color: color-mix(in srgb, var(--color-surface) 5%, transparent);
+        padding: var(--space-5);
+        gap: var(--space-5);
+        display: flex;
+        align-items: flex-start;
+        border: var(--border-width-sm) solid color-mix(in srgb, var(--border-strong) 30%, transparent);
+
+        .checklist__card-icon {
+            flex-shrink: 0;
+        }
+
+        &:not(.checklist__card--checked) {
+            color: var(--color-on-primary-container);
+            h3 {
+                color: var(--color-on-primary-container);
+            }
+
+            .checklist__card-icon {
+                path {
+                    fill: var(--color-on-primary-container);
+                }
+            }
+        }
+    }
+
+    &__average {
+        background-color: color-mix(in srgb, var(--color-surface) 5%, transparent);
+        padding: var(--space-8);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: var(--border-width-sm) solid color-mix(in srgb, var(--border-strong) 30%, transparent);
+
+        @include space-y(4);
+        &-percent {
+            color: var(--metric-positive);
+        }
+
+        &-title {
+            font-weight: var(--font-weight-regular);
+            letter-spacing: 2px;
+        }
+
+        &-description {
+            max-width: 23.75rem;
+            margin-inline: auto;
+        }
+    }
+}
+
+.case {
+    &__wrapper {
+        @include space-y(10);
+
+        @media (min-width: $breakpoint-md) {
+            @include space-y(20);
+        }
+    }
+
+    .section__heading {
+        text-align: center;
+    }
+
+    &__list {
+        display: grid;
+        gap: var(--space-7);
+
+        @media (min-width: $breakpoint-lg) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__card {
+        display: grid;
+
+        &-thumbnail {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: var(--surface-raised);
+
+            picture,
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: cover;
+            }
+        }
+
+        &-content {
+            padding: var(--space-6);
+            border: var(--border-width-sm) solid var(--border-subtle);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: flex-start;
+            @include space-y(3);
+
+            .card__tag {
+                color: var(--action-primary);
+                font-weight: var(--font-weight-bold);
+            }
+
+            @media (min-width: $breakpoint-xl) {
+                padding: var(--space-8);
+            }
+        }
+
+        @media (min-width: $breakpoint-md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}

@@ -1,5 +1,50 @@
-// .nav {
-//     @media (min-width: var(--breakpoint-lg)) {
-//         display: none;
-//     }
-// }
+@use '../abstracts/' as *;
+
+.nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: var(--header-height);
+    background-color: var(--page-bg);
+    visibility: hidden;
+    opacity: 0;
+    will-change: opacity;
+    transition-duration: var(--duration-base);
+    transition-property: visibility, opacity;
+    transition-timing-function: ease;
+
+    &.is-open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &[aria-hidden='true'] {
+        pointer-events: none;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        display: none;
+    }
+}
+
+.nav__menu {
+    height: calc(100dvh - var(--header-height));
+    padding-block: var(--space-7);
+    text-align: center;
+    overflow-y: auto;
+}
+
+.nav__link {
+    text-decoration: none;
+    padding-block: var(--space-4);
+    display: inline-block;
+    transition: color var(--duration-base) ease;
+
+    &:hover {
+        color: var(--action-primary-hover);
+    }
+
+    &.is-active {
+        color: var(--action-primary);
+    }
+}

@@ -4,25 +4,22 @@ import { fileURLToPath, URL } from 'node:url';
 import glob from 'fast-glob';
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import nunjucks from 'vite-plugin-nunjucks';
+
+const projectRoot = fileURLToPath(new URL('.', import.meta.url));
+const srcRoot = resolve(projectRoot, 'src');
+const stylelintPattern = resolve(projectRoot, 'src/assets/styles/**/*.{css,scss}');
 
 export default defineConfig({
     root: 'src',
     publicDir: '../public',
     resolve: {
         alias: {
-            '@': fileURLToPath(new URL('src', import.meta.url)),
-            '@styles': fileURLToPath(new URL('src/assets/styles', import.meta.url))
+            '@': srcRoot,
+            '@styles': resolve(srcRoot, 'assets/styles')
         }
     },
-    // css: {
-    //     preprocessorOptions: {
-    //         scss: {
-    //             // api: 'modern-compiler',
-    //             // additionalData: `@forward "abstracts/_variables.scss";`
-    //         }
-    //     },
-    // },
     plugins: [
         nunjucks(),
         checker({
@@ -31,8 +28,27 @@ export default defineConfig({
                 lintCommand: 'eslint .'
             },
             stylelint: {
-                lintCommand: 'stylelint "assets/styles/**/*.{css,scss}" "public/assets/styles/**/*.css"'
+                lintCommand: `stylelint ${stylelintPattern}`
             }
+        }),
+        ViteImageOptimizer({
+            test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
+            exclude: undefined,
+            include: undefined,
+            includePublic: true,
+            logStats: true,
+            ansiColors: true,
+            svg: {
+                multipass: true,
+                plugins: [
+                    { name: 'removeViewBox', active: false },
+                    { name: 'sortAttrs', active: true }
+                ]
+            },
+            png: { quality: 80 },
+            jpeg: { quality: 75 },
+            webp: { lossy: 80 },
+            avif: { lossy: 70 }
         })
     ],
     build: {
