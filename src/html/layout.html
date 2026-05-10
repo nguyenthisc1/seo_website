@@ -1,21 +1,35 @@
 <!doctype html>
+
 <html lang="vi">
     <head>
+        <title>RankForge: Technical SEO for the Data-Driven Enterprise</title>
         <!-- Standard meta tags -->
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="{{ description }}" />
-        <link rel="canonical" href="{{ client.domain }}{{ page.url }}" />
-        <meta name="generator" content="{{ eleventy.generator }}" />
+        <meta name="description" content="Precision technical SEO services for enterprises. Data-driven audits and actionable recommendations to elevate your web presence." />
+        <meta name="keywords" content="technical SEO, enterprise SEO, SEO audit, website optimization, performance, ranking, RankForge" />
+        <meta name="author" content="RankForge Team" />
+        <link rel="canonical" href="https://rankforge.com/" />
+        <meta name="generator" content="RankForge Engine" />
 
         <!--Social Media Display-->
-        <meta property="og:title" content="{{ title }}" />
-        <meta property="og:description" content="{{ description }}" />
+        <meta property="og:title" content="RankForge: Technical SEO for the Data-Driven Enterprise" />
+        <meta property="og:description" content="Unlock your site's full potential with enterprise-level technical SEO audits, strategies, and solutions tailored for complex architectures." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="{{ client.domain }}{{ page.url }}" />
-        <meta property="og:image" content="{{ image or '/assets/images/logo-small.png' }}" />
-        <meta property="og:image:secure_url" content="{{ image or '/assets/images/logo-small.png' }}" />
+        <meta property="og:url" content="https://rankforge.com/" />
+        <meta property="og:image" content="/assets/images/img_home_hero.png" />
+        <meta property="og:image:secure_url" content="/assets/images/img_home_hero.png" />
+        <meta property="og:site_name" content="RankForge" />
+        <meta property="og:locale" content="vi_VN" />
+
+        <!-- Twitter Card demo SEO -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="{{ title or 'Demo SEO Title' }}" />
+        <meta name="twitter:description" content="{{ description or 'Demo SEO description for the website. Learn more about our demo content and services here.' }}" />
+        <meta name="twitter:image" content="{{ image or '/assets/images/img_home_hero.png' }}" />
+        <meta name="twitter:site" content="@demosite" />
+        <meta name="twitter:creator" content="@demoauthor" />
 
         <!--Favicons-->
         <!-- https://realfavicongenerator.net/ -->
@@ -26,7 +40,13 @@
         <meta name="apple-mobile-web-app-title" content="Starter Kit" />
         <link rel="manifest" href="/assets/favicons/site.webmanifest" />
 
-        {% block head %}{% endblock %}
+        <script>
+            !(function () {
+                let t = localStorage.getItem('theme'),
+                    e = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                ('dark' === t || (!t && e)) && document.documentElement.classList.add('dark');
+            })();
+        </script>
 
         <link rel="stylesheet" href="/assets/styles/critical.scss" />
         <link
@@ -41,10 +61,13 @@
         <noscript>
             <link rel="stylesheet" href="/assets/styles/app.scss" />
         </noscript>
+
+        {% block head %}{% endblock %}
     </head>
     <body>
         {% include 'src/html/header.html' %}
         <main id="main">{% block content %}{% endblock %}</main>
+        {% include 'src/html/footer.html' %}
 
         <script type="module" src="/assets/scripts/main.js"></script>
     </body>

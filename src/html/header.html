@@ -6,7 +6,7 @@
             </strong>
 
             <div class="header__right">
-                <button class="header__toggle button--visible" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open nav menu">
+                <button type="button" class="header__toggle button--visible" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open nav menu">
                     <svg class="header__toggle--closed" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z" fill="currentColor" />
                     </svg>
@@ -26,13 +26,13 @@
                     </ul>
                 </nav>
 
-                <button class="header__right-button button"><span>Request an audit</span></button>
+                <button type="button" class="header__right-button button"><span>Request an audit</span></button>
             </div>
         </div>
     </div>
 </header>
 
-<nav class="nav" id="mobile-nav" aria-hidden="true" aria-label="Main mobile navigation">
+<nav class="nav" id="mobile-nav" inert hidden aria-label="Main mobile navigation">
     <ul class="nav__menu" id="nav-menu">
         <li><a class="nav__link" href="/">Home</a></li>
         <li><a class="nav__link" href="/service.html">Service</a></li>

@@ -4,10 +4,12 @@
     justify-content: center;
     min-height: 2.75rem;
     padding: 0.75rem 1rem;
+    gap: var(--space-2);
     border: var(--border-width-sm) solid transparent;
     border-radius: var(--radius-md);
     font-weight: var(--font-weight-bold);
     line-height: 1;
+    white-space: nowrap;
     text-decoration: none;
     transition:
         background-color var(--duration-base) var(--ease-standard),
@@ -15,6 +17,11 @@
         box-shadow var(--duration-base) var(--ease-standard),
         color var(--duration-base) var(--ease-standard),
         transform var(--duration-fast) var(--ease-standard);
+
+    &__icon {
+        flex-shrink: 0;
+        transition: transform var(--duration-base) ease;
+    }
 }
 
 .button:focus-visible {
@@ -52,4 +59,26 @@
     background-color: transparent;
     outline: none;
     border: none;
+}
+
+.button--ghost {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: var(--action-primary);
+    padding-inline: 0;
+
+    &--secondary {
+        color: var(--text-strong);
+    }
+}
+
+.button--regular {
+    font-weight: var(--font-weight-regular);
+}
+
+.button--icon:hover {
+    .button__icon {
+        transform: translateX(var(--space-1));
+    }
 }
