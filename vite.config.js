@@ -55,8 +55,10 @@ export default defineConfig({
         outDir: '../dist',
         emptyOutDir: true,
         cssCodeSplit: true,
+        modulePreload: false,
         minify: 'terser',
         sourcemap: false,
+        assetsInlineLimit: 4096,
         rollupOptions: {
             input: {
                 main: 'src/index.html',
