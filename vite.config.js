@@ -7,13 +7,17 @@ import checker from 'vite-plugin-checker';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import nunjucks from 'vite-plugin-nunjucks';
 
+const projectRoot = fileURLToPath(new URL('.', import.meta.url));
+const srcRoot = resolve(projectRoot, 'src');
+const stylelintPattern = resolve(projectRoot, 'src/assets/styles/**/*.{css,scss}');
+
 export default defineConfig({
     root: 'src',
     publicDir: '../public',
     resolve: {
         alias: {
-            '@': fileURLToPath(new URL('src', import.meta.url)),
-            '@styles': fileURLToPath(new URL('src/assets/styles', import.meta.url))
+            '@': srcRoot,
+            '@styles': resolve(srcRoot, 'assets/styles')
         }
     },
     plugins: [
@@ -24,7 +28,7 @@ export default defineConfig({
                 lintCommand: 'eslint .'
             },
             stylelint: {
-                lintCommand: 'stylelint "assets/styles/**/*.{css,scss}"'
+                lintCommand: `stylelint ${stylelintPattern}`
             }
         }),
         ViteImageOptimizer({

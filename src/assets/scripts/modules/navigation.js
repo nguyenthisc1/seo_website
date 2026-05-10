@@ -8,15 +8,18 @@ export const initNavigation = () => {
 
     const toggleMenu = (forceClose = false) => {
         const isOpen = forceClose ? true : nav.classList.contains('is-open');
-        nav.setAttribute('aria-hidden', isOpen);
 
         if (isOpen) {
             nav.classList.remove('is-open');
             toggle.setAttribute('aria-expanded', 'false');
+            nav.removeAttribute('hidden');
+            nav.removeAttribute('inert');
             body.style.overflow = '';
         } else {
             nav.classList.add('is-open');
             toggle.setAttribute('aria-expanded', 'true');
+            nav.setAttribute('hidden', '');
+            nav.setAttribute('inert', '');
             body.style.overflow = 'hidden';
         }
     };

@@ -16,7 +16,8 @@
         "test": "playwright test",
         "test:e2e": "playwright test",
         "test:ui": "playwright test --ui",
-        "a11y": "playwright test tests/a11y.spec.js"
+        "a11y": "playwright test tests/a11y.spec.js",
+        "check": "pnpm lint && pnpm lint:html && pnpm build && pnpm test"
     },
     "lint-staged": {
         "*.{js,css,scss,html,json,md}": [
