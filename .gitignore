@@ -45,6 +45,7 @@ yarn-error.log*
 node_modules/
 /blob-report/
 /playwright/.auth/
+/tests/visual.spec.js-snapshots
 
 .env
 .env.development
