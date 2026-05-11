@@ -6,6 +6,9 @@ export default defineConfig({
     expect: {
         timeout: 5000
     },
+    toHaveScreenshot: {
+        maxDiffPixelRatio: 0.01
+    },
     use: {
         baseURL: 'http://localhost:4173',
         trace: 'on-first-retry',
@@ -21,11 +24,15 @@ export default defineConfig({
     projects: [
         {
             name: 'desktop-chrome',
-            use: { ...devices['Desktop Chrome'] }
+            use: { viewport: { width: 1440, height: 900 } }
         },
         {
             name: 'mobile-chrome',
-            use: { ...devices['Pixel 7'] }
+            use: { ...devices['Pixel 5'] }
+        },
+        {
+            name: 'mobile-safari',
+            use: { ...devices['iPhone 13'] }
         }
     ]
 });

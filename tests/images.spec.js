@@ -16,3 +16,12 @@ test('hero image is optimized for LCP', async ({ page }) => {
     await expect(heroImg).toHaveAttribute('loading', 'eager');
     await expect(heroImg).toHaveAttribute('fetchpriority', 'high');
 });
+
+test('LCP image should have high fetch priority', async ({ page }) => {
+    await page.goto('/');
+    const lcpImage = page.locator('img[src*="img_home_hero"]');
+
+    await expect(lcpImage).toHaveAttribute('fetchpriority', 'high');
+
+    await expect(lcpImage).not.toHaveAttribute('loading', 'lazy');
+});
