@@ -6,6 +6,8 @@
     right: 0;
     top: var(--header-height);
     background-color: var(--page-bg);
+    z-index: var(--z-sticky);
+    pointer-events: none;
     visibility: hidden;
     opacity: 0;
     will-change: opacity;
@@ -16,10 +18,7 @@
     &.is-open {
         visibility: visible;
         opacity: 1;
-    }
-
-    &[aria-hidden='true'] {
-        pointer-events: none;
+        pointer-events: auto;
     }
 
     @media (min-width: $breakpoint-lg) {

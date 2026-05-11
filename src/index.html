@@ -1,18 +1,9 @@
-{% extends "src/html/layout.html" %} {% block head %}
-<link
-    rel="preload"
-    href="/assets/styles/pages/home.scss"
-    as="style"
-    onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-    "
-/>
-<noscript>
-    <link rel="stylesheet" href="/assets/styles/pages/home.scss" />
-</noscript>
+{% set title = 'RankForge | Enterprise Technical SEO Services' %} {% set description = 'Cutting-edge technical SEO solutions for enterprise-scale websites. Actionable audits, crawl optimization, and performance boosts for complex digital properties.'
+%} {% set pageUrl = '/' %} {% set ogImage = '/assets/images/img_home_og.png' %} {% extends "src/html/layout.html" %} {% block head %}
+<link rel="stylesheet" href="/assets/styles/pages/home.scss" media="print" onload="this.media = 'all'" />
 
-<link rel="preload" as="image" href="/assets/images/img_home_hero.png" />
+<link rel="preload" as="image" href="/assets/images/img_home_hero.png" fetchpriority="high" />
+
 {% endblock %} {% block content %}
 <section class="section hero home__hero" aria-labelledby="hero-title">
     <div class="container">
@@ -84,7 +75,7 @@
         </div>
 
         <div class="container services__container">
-            <div class="services__list" tabindex="0" aria-label="Services">
+            <div class="services__list" role="region" aria-label="Services carousel" tabindex="0">
                 <div class="services__card">
                     <span aria-hidden="true" class="services__card-icon">
                         <svg width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg">
